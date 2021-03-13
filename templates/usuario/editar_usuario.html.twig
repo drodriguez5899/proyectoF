@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block head %}
+    {% block stylesheets %}
+    
+        {{ parent() }}
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% endblock %}
+{% endblock %}
+{% block body %}
+    <body class="dark bg-dark">
+        <div class="container">
+            <div id="cabeceraRegistro">
+                <h1>Editar</h1>  &nbsp;&nbsp;   
+                <img width="90px" src="{{ asset('/imagenes/logoF2.png') }}">
+            </div> <br>
+            <div class="form">
+                <div class="form-content">
+                    <div class="row">
+                        {{ form(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </body>
+     
+ 
+{% endblock %}
