@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header id="destacadosE">
+       <h1 style="font-size: 50px;">Festivales mas destacados de España</h1>
+   </header>
+
+    <body class="dark bg-dark">
+        <div id="cabeceraVerEsp">
+           <h1>{{ destacado.nombre}}</h1>
+           <h4>{{ destacado.frase}}</h4>
+       </div>
+       <div id="contenidoVerEsp">    
+           <img  src="{{ asset('/imagenes/') }}/{{ destacado.foto }}" alt="alt"/>
+           <div id="descripcionVerEsp">                
+               <p >{{ destacado.descripcion}}</p>               
+           </div>
+           
+       </div>
+           <div id="videoVer">
+               {% for video in destacado.videos  %}
+                <iframe width="900px" height="500px" src="https://www.youtube.com/embed/{{ video.codigo }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% else %}
+                <p class="card-text">No hay vídeos subidos.</p>
+            {% endfor %}
+           </div>
+               
+       
+         
+        
+        <a href="{{ path('insertar_video', {id:destacado.id}) }}" class="btn btn-primary" role="button">Insertar Video</a>
+      
+        
+    </body>
+      
+     
+   
+       
+  
+   
+   
+   
+   
+{% endblock %}

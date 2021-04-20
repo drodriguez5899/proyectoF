@@ -1,27 +1,27 @@
 {% extends 'base.html.twig' %}
-
+ 
 {% block body %}
     <body class="dark bg-dark">
-        <div  class="card" style="width: 18rem;position: absolute;
-              
-            top: 40%; /* Buscamos el centro horizontal (relativo) del navegador */
-            left: 50%; /* Buscamos el centro vertical (relativo) del navegador */
-            width: 600 px; /* Definimos el ancho del objeto a centrar */
-            height: 400px; /* Definimos el alto del objeto a centrar */
-            margin-top: -200px; /* Restamos la mitad de la altura del objeto con un margin-top */
-            margin-left: -300px; /* Restamos la mitad de la anchura del objeto con un margin-left */">
-            <img class="card-img-top" src="{{ asset('/imagenes/') }}/{{ usuario.imagen }}"  alt="Card image cap">
-            <div class="card-body">          
-              <h1 class="card-title">{{ usuario.nombre }}  {{ usuario.apellidos }}</h1>
-              <p><b>Telefono: </b> {{ usuario.telefono}}</p>
-              <p> <b>Email:</b> {{ usuario.email }}  </p>
-              <p> <b>Pais:</b>{{ usuario.pais}}           
-              </p> 
-                <button class="button" >   <a style="text-decoration: none; color: white" href="{{ path('editar_usuario',{id:usuario.id}) }}">editar </a> </button>
-              
+            <div id="cabeceraPerfil">
+                <img id="avatar" src="{{ asset('/imagenes/') }}/{{ usuario.imagen }}" >
+                <h1 id="nombreU">{{usuario.nombre  }} {{ usuario.apellidos}}  </h1>
             </div>
-        </div>
-         
+            <div id="datos">
+                <h3>Datos Personales:</h3>
+                <p class="card-text"><b>sexo: </b> {{usuario.sexo}}</p>
+                <p class="card-text"><b>Email: </b> {{usuario.email}}</p>
+                <p class="card-text"> <b>Telefono: </b>{{usuario.telefono}}</p>
+                <p class="card-text"> <b>Pais: </b>{{usuario.pais}}</p>
+
+            </div>
+                 <button class="button" >   <a style="text-decoration: none; color: white" href="{{ path('editar_usuario',{id:usuario.id}) }}">editar </a> </button>
+            
+    
+        
+        
+        
+    
+
     </body>
     
         

@@ -44,6 +44,11 @@ class Mensajes
      */
     private $respuestas;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $fecha;
+
     public function __construct()
     {
         $this->respuestas = new ArrayCollection();
@@ -128,6 +133,18 @@ class Mensajes
                 $respuesta->setMensajes(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFecha(): ?\DateTimeInterface
+    {
+        return $this->fecha;
+    }
+
+    public function setFecha(\DateTimeInterface $fecha): self
+    {
+        $this->fecha = $fecha;
 
         return $this;
     }

@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Entity\Usuario;
@@ -40,7 +41,7 @@ class UsuarioController extends AbstractController
                 ->add('nombre', TextType::class)
                 ->add('apellidos', TextType::class)
                 ->add('telefono',IntegerType::class)
-                ->add('pais', TextType::class)
+                ->add('pais', countryType ::class)
                  ->add('sexo', ChoiceType::class,[
                     'choices' => [
                         'Masculino'=>'Masculino',

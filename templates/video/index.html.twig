@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block head %}
+    {% block stylesheets %}
+        {{ parent() }}
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+        {{ form(form) }}
+{% endblock %}

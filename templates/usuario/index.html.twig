@@ -2,7 +2,7 @@
 
 
 {% block body %}
-    <body  class="dark bg-dark">
+    <body class="dark bg-dark" >
         <header  id="home">
         <h1 id="tituloI" >Festivales</h1><br>        
         <div id="contenidoI" >
@@ -16,6 +16,25 @@
         </div>
         
     </header>
+            <video  width="100%"  autoplay controls>
+                <source src='{{ asset('imagenes/video.mp4') }}' type="video/mp4">
+                <source src="video.ogg" type="video/ogg">
+                Your browser does not support HTML video.
+            </video>
+            <div id="bienvenido">
+                <h3 style="font-size: 75px;">BIENVENIDO
+                    {% if app.user %}
+                       {{ app.user.nombre }}
+                       {{ app.user.apellidos }}
+                    {% endif %}  
+                </h3>
+                <h5 style="font-size:35px">En esta pagina encontraras los festivales mas adecuados a tus gustos</h5>
+                
+            </div>
+                
+                
+
+            
             
     </body>
  

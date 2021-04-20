@@ -76,10 +76,16 @@ class Usuario implements UserInterface
      */
     private $respuestas;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Favorito::class, mappedBy="usuario")
+     */
+    private $favoritos;
+
     public function __construct()
     {
         $this->mensajes = new ArrayCollection();
         $this->respuestas = new ArrayCollection();
+        $this->favoritos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -289,6 +295,36 @@ class Usuario implements UserInterface
             // set the owning side to null (unless already changed)
             if ($respuesta->getUsuario() === $this) {
                 $respuesta->setUsuario(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Favorito[]
+     */
+    public function getFavoritos(): Collection
+    {
+        return $this->favoritos;
+    }
+
+    public function addFavorito(Favorito $favorito): self
+    {
+        if (!$this->favoritos->contains($favorito)) {
+            $this->favoritos[] = $favorito;
+            $favorito->setUsuario($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavorito(Favorito $favorito): self
+    {
+        if ($this->favoritos->removeElement($favorito)) {
+            // set the owning side to null (unless already changed)
+            if ($favorito->getUsuario() === $this) {
+                $favorito->setUsuario(null);
             }
         }
 
