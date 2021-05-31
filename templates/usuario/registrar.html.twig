@@ -17,21 +17,24 @@
 {% endblock %}
 
 {% block body  %}
-    <div id="cabecera"  class="dark bg-dark">        
-        <div class="container">
-            <div id="cabeceraRegistro">
-                <h1>Registro</h1>  &nbsp;&nbsp;   
-                <img width="90px" src="{{ asset('/imagenes/logoF2.png') }}">
-            </div> <br>
-            <div class="form">
-                <div class="form-content">
-                    <div class="row">
-                        {{ form(form) }}
+    <body style="background-color:#1A1A1A;">
+        <div id="cabecera">        
+            <div class="container">
+                <div id="cabeceraRegistro">
+                    <h1>Registro</h1>  &nbsp;&nbsp;   
+                    <img width="90px" src="{{ asset('/imagenes/logoF2.png') }}">
+                </div> <br>
+                <div class="form">
+                    <div class="form-content">
+                        <div class="row">
+                            {{ form(form) }}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div>        
         </div>        
-    </div>
+    </body><br><br>
+    
     
    
 {% endblock %}

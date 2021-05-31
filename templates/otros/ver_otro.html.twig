@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header id="destacadosE">
+       <h1 style="font-size: 50px;">Festivales todos</h1>
+   </header>
+
+    <body class="dark bg-dark">
+        <div id="cabeceraVerEsp">
+           <h1>{{ otro.nombre}}</h1>
+           <h4>{{ otro.frase}}</h4>
+       </div>
+       <div id="contenidoVerEsp">    
+           <img  src="{{ asset('/imagenes/') }}/{{ otro.foto1 }}" alt="alt"/>
+           <div id="descripcionVerEsp">                
+               <p >{{ otro.descripcion}}</p>               
+           </div>
+           
+       </div>
+           <div id="videoVer">
+               <img  src="{{ asset('/imagenes/') }}/{{ otro.foto2 }}" alt="alt"/>
+           </div>
+               
+       
+         
+        
+      
+        
+    </body>
+      
+     
+   
+       
+  
+   
+   
+   
+   
+{% endblock %}

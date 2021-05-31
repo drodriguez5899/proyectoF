@@ -9,8 +9,8 @@
        {% for festivalOtro in otro %} 
                    
                        <div id="ContenedorDestacadoE">
-                            <h1> {{ festivalOtro.nombre}}</h1>
-                            <p>{{ festivalOtro.frase}}</p>
+                            <h1> <a style="text-decoration: none;color: sandybrown; " href="{{  path('ver_otro',{id:festivalOtro.id}) }}">  {{ festivalOtro.nombre}}</h1>
+                            <p style="color:sandybrown;">{{ festivalOtro.frase}}</p>
                             <img  src="{{ asset('/imagenes/') }}/{{ festivalOtro.foto1 }}" height="400px" width="600px" alt="alt"/>
                                                  
                         </div>

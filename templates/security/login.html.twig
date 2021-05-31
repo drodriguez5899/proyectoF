@@ -17,12 +17,12 @@
     {% endblock %}
 {% endblock %}
 {% block body %}
-    <body class="dark bg-dark">
+    <body style="background-color:#1A1A1A">
        <div class="container">
     <div  class="row">
         <div  class="col-md-5 mx-auto">
             <div  id="first">
-                <div  class="myform form ">
+                <div style="margin: 30px;"  class="myform form ">
                     <div class="logo mb-3">
                         <div class="col-md-12 text-center">
                             <h1>Login</h1>
@@ -30,7 +30,7 @@
                     </div>
                     <form method="POST">
                         {% if error %}
-                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            <div class="alert alert-danger">Error en la contraseña o en el correo</div>
                         {% endif %}
                         {% if app.user %}
                             <div class="mb-3">
@@ -54,14 +54,14 @@
                             </label>
                         </div>
                         <div class="form-group">
-                            <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
+                            <p class="text-center">By signing up you accept our <a  style="color: #dc493a" href="#">Terms Of Use</a></p>
                         </div>
                         <div class="col-md-12 text-center ">
-                            <button type="submit" value="Login" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                            <button type="submit" value="Login" class=" btn btn-block mybtn btn-danger tx-tfm">Login</button>
                         </div>
                         
                         <div class="form-group">
-                            <p class="text-center">¿No tienes cuenta? <a href="/registrar" id="signup">Regístrate aquí</a></p>
+                            <p class="text-center">¿No tienes cuenta? <a href="/registrar" style="color: #dc493a" >Regístrate aquí</a></p>
                         </div>
                     </form>
                 </div>

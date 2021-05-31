@@ -18,6 +18,21 @@ class RespuestaRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Respuesta::class);
     }
+    
+    
+    
+    public function findByIdMensaje(int $id)
+    {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT li, i
+            FROM App\Entity\Respuesta li INNER JOIN li.mensajes i
+            WHERE i.id = :id'
+        )->setParameter('id', $id);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 
     // /**
     //  * @return Respuesta[] Returns an array of Respuesta objects

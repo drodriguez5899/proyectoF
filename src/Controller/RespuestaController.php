@@ -86,13 +86,15 @@ class RespuestaController extends AbstractController {
             $respuesta->setMensajes($mensaje);
             $respuesta ->setUsuario($this->getUser());
             $em->persist($respuesta);
-            $em->flush();             
+            $em->flush();
+            $repositorio=$this->getDoctrine()->getRepository(Respuesta::class);
+            $respuestas = $repositorio->findByIdMensaje($mensaje->getId());
             $this->addFlash(
                     'notice',
                     'Se ha creado correctamente'
                     );
 
-            return $this->redirectToRoute('foro');
+            return $this->render('mensaje/ver_mensaje.html.twig', ['mensaje' => $mensaje, 'respuestas'=>$respuestas]);
         }
 
         return $this->render('respuesta/insertar_respuesta.html.twig',
@@ -102,22 +104,24 @@ class RespuestaController extends AbstractController {
 
 
 
-        return $this->redirectToRoute('foro');
     }
     
       /**
-     * @Route ("/respuesta/borrar/{id}",name="borrar_respuesta")
+     * @Route ("/respuesta/borrar/{id}",name="borrar_respuesta",requirements={"id"="\d+"})
      * @return Response
      */
     public function borrar(Respuesta $respuesta): Response {
+        $mensaje = $respuesta->getMensajes();
         $em = $this->getDoctrine()->getManager();
         $em->remove($respuesta);
         $em->flush();
+        $repositorio=$this->getDoctrine()->getRepository(Respuesta::class);
+        $respuestas = $repositorio->findByIdMensaje($mensaje->getId());
         $this->addFlash(
                     'notice',
                     'Se ha borrado correctamente'
                     );
-        return $this->redirectToRoute('foro');
+         return $this->render('mensaje/ver_mensaje.html.twig', ['mensaje' => $mensaje, 'respuestas'=>$respuestas]);
     }
     
     
@@ -134,7 +138,7 @@ class RespuestaController extends AbstractController {
                 ->add('imagen', FileType::class, [
                     'label' => 'Selecciona imagen',
                     "data_class" => null,
-                    'required'=>false,
+                    'required'=>true,
                     'constraints' => [
                         new File([
                             'maxSize' => '1024k',
@@ -171,13 +175,15 @@ class RespuestaController extends AbstractController {
             $em = $this->getDoctrine()->getManager();
             $respuesta ->setUsuario($this->getUser());
             $em->persist($respuesta);
-            $em->flush();             
+            $em->flush();
+            $repositorio=$this->getDoctrine()->getRepository(Respuesta::class);
+            $respuestas = $repositorio->findByIdMensaje($respuesta->getMensajes()->getId());
             $this->addFlash(
                     'notice',
                     'Se ha editado correctamente'
                     );
 
-        return $this->redirectToRoute('foro');
+        return $this->render('mensaje/ver_mensaje.html.twig', ['mensaje' => $respuesta->getMensajes(), 'respuestas'=>$respuestas]);
       }
 
       return $this->render('respuesta/editar_respuesta.html.twig', array(

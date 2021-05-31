@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header id="otros">
+       <h1 style="font-size: 50px;">Electronica</h1>
+       
+   </header>
+  
+
+   <body class="dark bg-dark">        
+       {% for festivalOtro in otro %} 
+                   {%  if festivalOtro.genero == "Electronica"%}
+                       <div id="ContenedorDestacadoE">
+                            <h1> <a style="text-decoration: none; color:sandybrown; " href="{{  path('ver_electronica',{id:festivalOtro.id}) }}">  {{ festivalOtro.nombre}}</h1>
+                            <p style="color:sandybrown;">{{ festivalOtro.frase}}</p>
+                            <img  src="{{ asset('/imagenes/') }}/{{ festivalOtro.foto1 }}" height="400px" width="600px" alt="alt"/>
+                                                 
+                        </div>
+                   {% endif %}    
+                       
+                        
+               
+           {% else %}
+               No hay ningún mensaje
+       {% endfor %}
+       
+       
+   
+       
+   </body>
+  
+   
+   
+   
+   
+{% endblock %}

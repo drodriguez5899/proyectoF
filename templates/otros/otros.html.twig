@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <body class="dark bg-dark" >
+        <header id="destacadosE">
+            <h1 style="font-size: 50px;">Diferentes Fesivales</h1>
+        </header>
+        <div id="textoOtro">
+            <h1>Otros</h1>
+            <p>Aqui podras encontrar el festival que mas se ajusta a tu estilo de musica</p>
+        </div>
+        <div id="otroCont">
+            <div id="otroTodos">
+                <h2>Todos los estilos</h2> <br>
+                <a href='{{ path('otrosTodos') }}'>  <img src="http://blog.emusicarte.es/wp-content/uploads/2014/09/Depositphotos_24424601_xs.jpg" height="400px" width="600px" alt="alt"/> </a> 
+            </div>
+            <div id="otroElectronica">
+                <h2>Electronica</h2> <br>
+                <a href='{{ path('otrosElectronica') }}'>  <img src="https://i.ytimg.com/vi/O-y3Obie94U/maxresdefault.jpg" height="400px" width="600px" alt="alt"/></a>  
+            </div>
+        </div> 
+        <div id="otroCont">
+            <div id="otroTodos">
+                <h2>Reggaeton/Hip Hop</h2> <br>
+                <a href='{{ path('otrosReggaeton') }}'>  <img src="https://i2.wp.com/www.slang.fm/wp-content/uploads/2020/02/palabraurbanoarte.jpg?fit=1280%2C720&ssl=1" height="400px" width="600px" alt="alt"/> </a> 
+            </div>
+            <div id="otroElectronica">
+                <h2>Pop/Indie</h2> <br>
+                <a href='{{ path('otrosPop') }}'>  <img src="https://4.bp.blogspot.com/-CaY33A8m-ZI/UYqLoC3xuKI/AAAAAAAAA8s/lDmJeqFirMs/s1600/musica+indie.jpg" height="400px" width="600px" alt="alt"/></a>  
+            </div>
+        </div>
+        <div id="otroCont">
+            <div id="otroTodos">
+                <h2>Rock/Metal/Punk</h2> <br>
+                <a href='{{ path('otrosRock') }}'>  <img src="https://i.ebayimg.com/images/g/4TYAAOSwAopcRxZF/s-l300.png" height="400px" width="600px" alt="alt"/> </a> 
+            </div>
+            <div id="otroElectronica">
+                <h2>Multigenero/World Music</h2> <br>
+                <a href='{{ path('otrosMultigenero') }}'>  <img src="https://alvanituneslibrary.s3-us-west-1.amazonaws.com/Images/playlist/world-music-playlist.jpg" height="400px" width="600px" alt="alt"/></a>  
+            </div>
+        </div>
+        <div style=" background-color: black;height: 5vh; width: 100%; bottom: 0; position: fixed;" class="text-center text-white">DAVID RODRIGUEZ MORENO©</div>
+
+       
+            
+       
+                
+
+            
+            
+    </body>
+ 
+    
+
+     
+{% endblock %}

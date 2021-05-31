@@ -64,8 +64,10 @@ class MensajeController extends AbstractController {
                     ]
                 ])
                
-                
-                ->add('enviar', SubmitType::class, ['label' => 'Insertar mensaje'])
+                ->add('enviar', SubmitType::class,
+                array(
+                    'attr' => array('class' => 'btn btn-danger btn-block', 'label' => 'Insertar Mensaje')
+                ))
                 ->getForm();
 
         $form->handleRequest($request);
@@ -105,7 +107,6 @@ class MensajeController extends AbstractController {
 
 
 
-        return $this->redirectToRoute('foro');
     }
     
      /**
@@ -147,7 +148,7 @@ class MensajeController extends AbstractController {
                 ->add('contenido', TextareaType::class)
                 ->add('imagen', FileType::class, [
                     'label' => 'Selecciona imagen',
-                    'required'=>false,
+                    'required'=>true,
                      "data_class" => null,
                     'constraints' => [
                         new File([

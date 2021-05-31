@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <body  class="dark bg-dark" >
+        <header id="destacadosE">
+            <h1 style="font-size: 50px;">Festivales mas destacados</h1>
+        </header>
+        <div id="textoDest">
+            <h1>DESTACADOS</h1>
+            <p>Aqui podras encontrar los festivales de musica mas importantes y espectaculares de todo el mundo y de España</p>
+        </div>
+        <div id="destacadosCont">
+            <div id="destMundo">
+                <h2>Mundo</h2> <br>
+                <a href='{{ path('destacadosM') }}'>  <img src="https://d3jv0cqma81l17.cloudfront.net/articulos/1362/imagen_destacadas/original/1647_10-festivales-de-musica-que-no-te-puedes-perder.jpg?1573813157" height="400px" width="600px" alt="alt"/> </a> 
+            </div>
+            <div id="destEspaña">
+                <h2>España</h2> <br>
+                <a href='{{ path('destacadosE') }}'>  <img src="https://dediscoteca.com/wp-content/uploads/2019/04/72191092_2590147137760211_657665303831904256_o.jpg" height="400px" width="600px" alt="alt"/></a>  
+            </div>
+        </div>
+        <div style="  background-color: black;height: 5vh; width: 100%; bottom: 0; position: fixed;" class="text-center text-white">DAVID RODRIGUEZ MORENO©</div>
+
+       
+            
+       
+                
+
+            
+            
+    </body>
+ 
+    
+
+     
+{% endblock %}

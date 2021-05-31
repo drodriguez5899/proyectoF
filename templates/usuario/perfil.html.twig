@@ -1,20 +1,25 @@
 {% extends 'base.html.twig' %}
  
 {% block body %}
-    <body class="dark bg-dark">
-            <div id="cabeceraPerfil">
-                <img id="avatar" src="{{ asset('/imagenes/') }}/{{ usuario.imagen }}" >
-                <h1 id="nombreU">{{usuario.nombre  }} {{ usuario.apellidos}}  </h1>
+    <body style="background-color:#1A1A1A ">
+        <div id="datosPerf" >
+            <img src="{{ asset('/imagenes/') }}/{{ usuario.imagen }}" >
+            <div id="nombrePerfil">
+               <h1 >{{usuario.nombre  }} {{ usuario.apellidos}}  </h1>
+                <div id="infoPerfil">
+                    <h2>Datos Personales:</h2>
+                    <p class="card-text"><b>sexo: </b> {{usuario.sexo}}</p>
+                    <p class="card-text"><b>Email: </b> {{usuario.email}}</p>
+                    <p class="card-text"> <b>Telefono: </b>{{usuario.telefono}}</p>
+                    <p class="card-text"> <b>Pais: </b>{{usuario.pais}}</p>
+                </div>
+                   <button class="button" >   <a style="text-decoration: none; color: white" href="{{ path('editar_usuario',{id:usuario.id}) }}">editar datos </a> </button> &nbsp;
+                   <button class="button" >   <a style="text-decoration: none; color: white" href="{{ path('editar_foto',{id:usuario.id}) }}">cambiar foto </a> </button>
             </div>
-            <div id="datos">
-                <h3>Datos Personales:</h3>
-                <p class="card-text"><b>sexo: </b> {{usuario.sexo}}</p>
-                <p class="card-text"><b>Email: </b> {{usuario.email}}</p>
-                <p class="card-text"> <b>Telefono: </b>{{usuario.telefono}}</p>
-                <p class="card-text"> <b>Pais: </b>{{usuario.pais}}</p>
-
-            </div>
-                 <button class="button" >   <a style="text-decoration: none; color: white" href="{{ path('editar_usuario',{id:usuario.id}) }}">editar </a> </button>
+                    
+        </div>
+          
+          
             
     
         

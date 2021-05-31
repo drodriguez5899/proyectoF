@@ -81,6 +81,11 @@ class Usuario implements UserInterface
      */
     private $favoritos;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password2;
+
     public function __construct()
     {
         $this->mensajes = new ArrayCollection();
@@ -327,6 +332,18 @@ class Usuario implements UserInterface
                 $favorito->setUsuario(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPassword2(): ?string
+    {
+        return $this->password2;
+    }
+
+    public function setPassword2(string $password2): self
+    {
+        $this->password2 = $password2;
 
         return $this;
     }

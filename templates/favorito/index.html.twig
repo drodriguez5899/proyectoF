@@ -10,8 +10,8 @@
        {% for favorito in favoritos %}           
                 {% if favorito.usuario.nombre == app.user.nombre %}
                       <div id="ContenedorDestacadoE">
-                        <h1> <a style="text-decoration: none; " href="{{  path('ver_destacadoE',{id:favorito.festDestacado.id}) }}">  {{ favorito.festDestacado.nombre}}</h1>
-                        <p>{{ favorito.festDestacado.frase}}</p>
+                        <h1> <a style="text-decoration: none;color: sandybrown; " href="{{  path('ver_destacadoE',{id:favorito.festDestacado.id}) }}">  {{ favorito.festDestacado.nombre}}</h1>
+                        <p style="color:sandybrown;">{{ favorito.festDestacado.frase}}</p>
                         <img  src="{{ asset('/imagenes/') }}/{{ favorito.festDestacado.foto }}" height="400px" width="600px" alt="alt"/>
                         <a  style="text-decoration: none; color: black;" href="{{ path('borrar_favorito',{id:favorito.id}) }}">X</a>
 

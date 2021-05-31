@@ -1,18 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Editar Mensajes{% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
-{% block body %}
-    <body class="dark bg-dark">
-        <div class="card">
-            <div class="card-header">
-              editar mensaje
-            </div>
-            <div class="card-body">
-                {{ form(form, {'attr': {'id': 'formulario_editar_mensaje'}}) }}
-            </div>
-        </div>
-    </body>
-     
- 
+{% block head %}
+    {% block stylesheets %}
+    
+        {{ parent() }}
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% endblock %}
+{% endblock %}
+
+{% block body  %}
+    <body style="background-color:#1A1A1A;">
+        <div id="cabecera">        
+            <div class="container">
+                <div id="cabeceraInsertarMensaje">
+                    <h1>Editar mensaje</h1>  &nbsp;&nbsp;   
+                    <img width="90px" src="{{ asset('/imagenes/logoF2.png') }}">
+                </div> <br>
+                <div class="form">
+                    <div class="form-content">
+                        <div class="row">
+                             {{ form(form, {'attr': {'id': 'formulario_editar_mensaje'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>        
+    </body><br><br>
+    
+    
+   
 {% endblock %}

@@ -9,13 +9,13 @@
        {% for festivaldestacado in destacado %} 
                     {%  if festivaldestacado.lugar == "España"%}
                         <div id="ContenedorDestacadoE">
-                            <h1> <a style="text-decoration: none; " href="{{  path('ver_destacadoE',{id:festivaldestacado.id}) }}">  {{ festivaldestacado.nombre}}</h1>
-                            <p>{{ festivaldestacado.frase}}</p>
-                            <img  src="{{ asset('/imagenes/') }}/{{ festivaldestacado.foto }}" height="400px" width="600px" alt="alt"/>
+                            <h1 > <a style="text-decoration: none;color: sandybrown; " href="{{  path('ver_destacadoE',{id:festivaldestacado.id}) }}">  {{ festivaldestacado.nombre}}</h1>
+                            <p style="color:sandybrown;">{{ festivaldestacado.frase}}</p>
+                            <img  src="{{ asset('/imagenes/') }}/{{ festivaldestacado.foto }}" height="400px" width="620px" alt="alt"/>
                             
                             {% if app.user %} 
                             {%  if app.user.nombre%}
-                                <a href="{{  path( 'insertar_favorito', {id:festivaldestacado.id} )}}"><i style="font-size: 50px; color: red;" class="fas fa-heart"></i></a>                             
+                                <a href="{{  path( 'insertar_favorito', {id:festivaldestacado.id} )}}"><i style="font-size: 50px; color: red; text-align: right;" class="fas fa-heart"></i></a>                             
                             {% endif %}     
                           {% endif %}
                                                                

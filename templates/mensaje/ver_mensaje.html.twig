@@ -37,13 +37,13 @@
                             
                             {%  if app.user.nombre == respuesta.usuario.nombre%}
                               <a  style="text-decoration: none; color: black;" href="{{ path('borrar_respuesta',{id:respuesta.id}) }}">X</a>
-                              <button><a style="text-decoration: none; color: black;" href="{{ path('editar_respuesta',{id:respuesta.id}) }}">editar respuesta</a> </button>
+                              <button class="button"><a style="text-decoration: none; color: white;" href="{{ path('editar_respuesta',{id:respuesta.id}) }}">editar respuesta</a> </button>
 
                             {% endif %}
 
                             {%  if app.user.nombre != respuesta.usuario.nombre %}
                                    {% if app.user.nombre== respuesta.mensajes.usuario.nombre %}
-                                    <button class="button"><a style="text-decoration: none; color: white" href="{{ path('insertar_respuesta',{id:respuesta.mensajes.id}) }}">Insertar Respuesta</a>     </button>     
+                                    <button class="button"><a style="text-decoration: none;" href="{{ path('insertar_respuesta',{id:respuesta.mensajes.id}) }}">Insertar Respuesta</a>     </button>     
                             
                                    {% endif %}
                             {% endif %}

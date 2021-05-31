@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FestivalOtroRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,26 @@ class FestivalOtro
      * @ORM\Column(type="string", length=10000)
      */
     private $frase;
+
+    /**
+     * @ORM\Column(type="string", length=1000)
+     */
+    private $fecha;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $video;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="festivalOtro")
+     */
+    private $videos;
+
+    public function __construct()
+    {
+        $this->videos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +142,60 @@ class FestivalOtro
     public function setFrase(string $frase): self
     {
         $this->frase = $frase;
+
+        return $this;
+    }
+
+    public function getFecha(): ?string
+    {
+        return $this->fecha;
+    }
+
+    public function setFecha(string $fecha): self
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+    public function getVideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setVideo(string $video): self
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Video[]
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos[] = $video;
+            $video->setFestivalOtro($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Video $video): self
+    {
+        if ($this->videos->removeElement($video)) {
+            // set the owning side to null (unless already changed)
+            if ($video->getFestivalOtro() === $this) {
+                $video->setFestivalOtro(null);
+            }
+        }
 
         return $this;
     }

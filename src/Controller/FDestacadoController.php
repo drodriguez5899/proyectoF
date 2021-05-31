@@ -47,6 +47,16 @@ class FDestacadoController extends AbstractController {
                         ['destacado' => $destacado]);
     }
     
+      /**
+     * @Route("/destacados", name="destacados")
+     */
+    public function destacados(): Response {
+        $repositorio = $this->getDoctrine()->getRepository(FestivalDestacado::class);
+        $destacado = $repositorio->findAll();
+        return $this->render('destacados/destacados.html.twig',
+                        ['destacado' => $destacado]);
+    }
+    
     
     /**
      * @Route("/destacados/insertar", name="insertar_destacado")

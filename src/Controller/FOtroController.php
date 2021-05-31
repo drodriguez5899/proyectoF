@@ -38,6 +38,71 @@ class FOtroController extends AbstractController {
                         ['otro' => $otro]);
     }
     
+     /**
+     * @Route("/otros", name="otros")
+     */
+    public function otros(): Response {
+        $repositorio = $this->getDoctrine()->getRepository(FestivalOtro::class);
+        $otro = $repositorio->findAll();
+        return $this->render('otros/otros.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+    /**
+     * @Route("/otros/Electronica", name="otrosElectronica")
+     */
+    public function electronica(): Response {
+        $repositorio = $this->getDoctrine()->getRepository(FestivalOtro::class);
+        $otro = $repositorio->findAll();
+        return $this->render('otros/otrosElectronica.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+     /**
+     * @Route("/otros/Reggaeton", name="otrosReggaeton")
+     */
+    public function reggaeton(): Response {
+        $repositorio = $this->getDoctrine()->getRepository(FestivalOtro::class);
+        $otro = $repositorio->findAll();
+        return $this->render('otros/otrosReggaeton.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+    
+     /**
+     * @Route("/otros/Pop", name="otrosPop")
+     */
+    public function pop(): Response {
+        $repositorio = $this->getDoctrine()->getRepository(FestivalOtro::class);
+        $otro = $repositorio->findAll();
+        return $this->render('otros/otrosPop.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+     /**
+     * @Route("/otros/Rock", name="otrosRock")
+     */
+    public function rock(): Response {
+        $repositorio = $this->getDoctrine()->getRepository(FestivalOtro::class);
+        $otro = $repositorio->findAll();
+        return $this->render('otros/otrosRock.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+    
+     /**
+     * @Route("/otros/Multigenero", name="otrosMultigenero")
+     */
+    public function multigenero(): Response {
+        $repositorio = $this->getDoctrine()->getRepository(FestivalOtro::class);
+        $otro = $repositorio->findAll();
+        return $this->render('otros/otrosMultigenero.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+    
+    
+    
     
      
     /**
@@ -50,6 +115,8 @@ class FOtroController extends AbstractController {
         $otro = new FestivalOtro();
         $form = $this->createFormBuilder($otro)
                 ->add('nombre', TextType::class)
+                ->add('video', TextType::class)
+                 ->add('fecha', TextType::class)
                 ->add('descripcion', TextareaType::class)
                 ->add('frase', TextareaType::class)
                  ->add('genero', ChoiceType::class,[
@@ -146,5 +213,60 @@ class FOtroController extends AbstractController {
         
         return $this->render('otros/insertar_otro.html.twig',
                         ['form' => $form->createView()]);
+    }
+    
+    /**
+     * @Route("/otros/Todo/{id}", name="ver_otro", requirements={"id"="\d+"})
+     * @param int $id
+     */
+    public function verOtro(FestivalOtro $otro): Response {
+        return $this->render('otros/ver_otro.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+    /**
+     * @Route("/otros/Electronica/{id}", name="ver_electronica", requirements={"id"="\d+"})
+     * @param int $id
+     */
+    public function verElectronica(FestivalOtro $otro): Response {
+        return $this->render('otros/ver_electronica.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+    /**
+     * @Route("/otros/pop/{id}", name="ver_pop", requirements={"id"="\d+"})
+     * @param int $id
+     */
+    public function verPop(FestivalOtro $otro): Response {
+        return $this->render('otros/ver_pop.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+    /**
+     * @Route("/otros/reggaeton/{id}", name="ver_reggaeton", requirements={"id"="\d+"})
+     * @param int $id
+     */
+    public function verReggaeton(FestivalOtro $otro): Response {
+        return $this->render('otros/ver_reggaeton.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+    /**
+     * @Route("/otros/rock/{id}", name="ver_rock", requirements={"id"="\d+"})
+     * @param int $id
+     */
+    public function verRock(FestivalOtro $otro): Response {
+        return $this->render('otros/ver_rock.html.twig',
+                        ['otro' => $otro]);
+    }
+    
+    
+    /**
+     * @Route("/otros/multigenero/{id}", name="ver_multigenero", requirements={"id"="\d+"})
+     * @param int $id
+     */
+    public function verMultigenero(FestivalOtro $otro): Response {
+        return $this->render('otros/ver_multigenero.html.twig',
+                        ['otro' => $otro]);
     }
 }

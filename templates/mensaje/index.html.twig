@@ -44,7 +44,10 @@
        
        
     {% if app.user %}
-        <button class="button"> <a  style="text-decoration: none; color: white;" href="{{ path('insertar_mensaje') }}"> Crear nuevo mensaje</a></button>
+        <div style="margin: 80px;">
+            <button class="button"> <a  style="text-decoration: none; color: white;" href="{{ path('insertar_mensaje') }}"> Crear nuevo mensaje</a></button>
+        </div>
+        
     {% endif %}
    
        

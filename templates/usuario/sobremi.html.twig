@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <body style="background-color: #1A1A1A" >        
+        <header id="sobremi">
+            <h1 style="font-size: 50px;">Sobre mi</h1>
+        </header>
+        <div id="datosCV" >
+            <img  src='{{ asset('imagenes/fotoCV.jpg') }}'>
+            <div id="datosPerCV">
+                <h1>David Rodriguez Moreno</h1>
+                <div id="info">
+                    <p>Quintanar de la Orden(Toledo)</p>
+                    <p>630560298</p>
+                    <p>david.rodriguez5899@gmail.com</p>
+                    <p><a href="https://www.instagram.com/david_rm5899/"><i class="fab fa-instagram"></i></a></p>
+
+                </div>
+            </div>            
+        </div>
+        <div id="estudiosGeneral">
+            <div id="cabecEstudios">
+                <h1>Formacion</h1>
+            </div>
+            <div id="estudios">
+                <ul>
+                    <li><p>Instituto Juan Bosco, Alcázar de san Juan-<b>Grado Superior de Desarrollo de aplicaciones web</b></p></li>
+                    <li><p>Instituto Universidad Laboral, Toledo - <b>Grado Superior de Automatización y Robótica Industrial</b></p></li>
+                    <li><p>Instituto Alonso Quijano, Quintanar de la orden-<b> Bachillerato de ciencias tecnológico</b></p></li>
+                </ul>  
+            </div>
+        </div>
+        <div id="trabajoGeneral">
+            <div id="cabecTrabajo">
+                <h1>Experiencia</h1>
+            </div>
+            <div id="trabajo">
+                <ul>
+                    <li>
+                        <p><i>1 Abril de 2019-14 de junio de 2019,</i></p>
+                        <p>Toledo <b>-Trabajo de prácticas de grado superior de automatización y robótica industrial en la empresa LMAutomatismos(Toledo)</b></p>
+                        <p><b>En ella realizaba trabajos como:</b></p>
+                        <ul>
+                            <li>Diseño de planos y esquemas eléctricos de proyectos automatizados</li>
+                            <li>Mantenimiento de elementos y dispositivos electricos y electronicos</li>
+                            <li>Programación de PLCS (TIA PORTAL) Y de pantallas (HMI)</li>
+                            <li>Gestión de la documentación de los proyectos eléctricos es decir tablas de componentes...</li>
+                        </ul>
+                    </li> <br>
+                    <li>
+                        <p><i>16 de de junio de 2019 -16 de Septiembre de 2019,</i></p>
+                        <p>Quintanar de la Orden <b>-Trabajo de socorrista, de mantenimiento y limpieza de piscina privada</b></p>                    
+                    </li><br>
+                    <li>
+                        <p> <i>17 de Septiembre de 2019-28  de Septiembre de 2019,</i></p>
+                        <p>Quintanar de la Orden <b>-Trabajo eventual agrícola, Vendimia</b></p>                    
+                    </li><br>
+                    <li>
+                        <p> <i>19 de Septiembre de 2020-30 de Septiembre de 2020,</i></p>
+                        <p>Quintanar de la Orden <b>-Trabajo eventual agrícola, Vendimia</b></p>                    
+                    </li>
+                   
+                </ul>  
+            </div>
+        </div>
+        <div id="programasGeneral">
+            <div id="cabecProgramas">
+                <h1>Programas</h1>
+            </div>
+            <div id="programas">
+                <ul>
+                    <li>
+                        <p><b>Manejo de programas informáticos comunes y específicos relacionados con la programación de plcs y robots:</b></p>
+                        <ul>
+                            <li>TIA Portal</li>
+                            <li>CX Programmer,CX Configurator,CX Integrator,Network configurator </li>
+                            <li>Rapid, RobotStudio </li>
+                        </ul>
+                    </li><br>
+                    <li><p><b>Alto nivel de informática y dominio de internet</b></p></li> <br>
+                    <li><p><b>Aplicaciones CAD: AutoCad, Cade Simu</b></p></li><br>
+                    <li><p><b>Lenguaje de programación: C,C++,HTML,Java,Css,SCL,KOP,JavaScripr,Php</b></p></li>
+                </ul>  
+            </div>
+        </div>
+        <div id="mapa">
+            <h1>Ubicacion</h1>
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207171.9366403297!2d139.6530233174625!3d35.77386537225787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bbd9009ec09%3A0x481a93f0d2a409dd!2sTorre%20de%20Tokio!5e0!3m2!1ses!2ses!4v1620657512311!5m2!1ses!2ses" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>                
+        </div>
+            
+       
+                
+
+            
+            
+    </body>
+ 
+    
+
+     
+{% endblock %}
