@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2021 a las 11:33:09
+-- Tiempo de generación: 31-05-2021 a las 17:19:55
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -48,7 +48,10 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20210324111821', '2021-03-24 12:18:30', 237),
 ('DoctrineMigrations\\Version20210329105408', '2021-03-29 12:54:17', 1463),
 ('DoctrineMigrations\\Version20210329152752', '2021-03-29 17:28:01', 210),
-('DoctrineMigrations\\Version20210418150700', '2021-04-18 17:07:13', 3848);
+('DoctrineMigrations\\Version20210418150700', '2021-04-18 17:07:13', 3848),
+('DoctrineMigrations\\Version20210507090111', '2021-05-07 11:01:25', 323),
+('DoctrineMigrations\\Version20210529135239', '2021-05-29 15:52:51', 6232),
+('DoctrineMigrations\\Version20210529135522', '2021-05-29 15:55:31', 1271);
 
 -- --------------------------------------------------------
 
@@ -67,9 +70,8 @@ CREATE TABLE `favorito` (
 --
 
 INSERT INTO `favorito` (`id`, `usuario_id`, `fest_destacado_id`) VALUES
-(1, 14, 7),
-(2, 14, 11),
-(5, 14, 26);
+(7, 20, 11),
+(8, 20, 6);
 
 -- --------------------------------------------------------
 
@@ -127,15 +129,19 @@ CREATE TABLE `festival_otro` (
   `foto1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `foto2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `genero` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `frase` varchar(10000) COLLATE utf8mb4_unicode_ci NOT NULL
+  `frase` varchar(10000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fecha` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `festival_otro`
 --
 
-INSERT INTO `festival_otro` (`id`, `nombre`, `descripcion`, `foto1`, `foto2`, `genero`, `frase`) VALUES
-(1, 'ejemplo', 'eeeeeeeeeee', '607c4f68b2d1d.jpg', '607c4f68b3318.jpg', 'Electronica', 'eeeeeeeeeeeeeeeeeeee');
+INSERT INTO `festival_otro` (`id`, `nombre`, `descripcion`, `foto1`, `foto2`, `genero`, `frase`, `fecha`, `video`) VALUES
+(2, 'WAN Festival', 'El WAN Festival 2021 debería tener lugar el 1 de enero.\r\n\r\nDesde 2016 WAN Festival toma la Cubierta de Leganés para dar su particular bienvenida al Año Nuevo, siendo esta la quinta edición de WAN New Year’s Day. Por sus anteriores carteles han pasado artistas de la talla de Richie Hawtin, Tale Of Us, Solomun, Boris Brechja, Amelie Lens o Joseph Capriati, trayéndonos este año la colaboración el sello de Paco Osuna: Mindhsake, presentándonos un nuevo e interesante cartel aunque no muy novedoso', '608028814d070.jpg', '608028814e53d.jpg', 'Electronica', 'WAN Festival volverá a tomar La Nueva Cubierta de Leganés, presentando una nueva cita irresistible en la que no faltarán artistas de primer nivel en medio de una producción espectacular', '', ''),
+(4, 'mutek festival', 'MUTEK 2021 regresará a Barcelona del 3 al 9 de mayo en un formato híbrido. Una edición que se realizará conjuntamente con su homólogo en Buenos Aires, MUTEKAR, a los que se unirán actuaciones del resto de sedes de la Red Internacional MUTEK con sus diferentes programas Connect desde Canadá, México y Japón.\r\n\r\nFrente al inusual panorama que supuso el 2020, MUTEK a nivel global, ha sabido hacer de las circunstancias una oportunidad', '60802eef46ff6.jpg', '60802eef475d4.jpg', 'Electronica', 'El MUTEK es un festival que impulsa el arte digital y la música en todo el mundo', '', ''),
+(5, 'Madrid Puro Reggaetón Festival', 'Sí, sí. Lo has leído bien. El 25 y 26 de junio de 2021 vamos a disfrutar de 2 días del festival que la capital se merece con 𝐞𝐥 𝐝𝐨𝐛𝐥𝐞 𝐝𝐞 𝐝í𝐚𝐬, 𝐞𝐥 𝐝𝐨𝐛𝐥𝐞 𝐝𝐞 𝐚𝐫𝐭𝐢𝐬𝐭𝐚𝐬 𝐲 𝐞𝐥 𝐝𝐨𝐛𝐥𝐞 𝐝𝐞 𝐞𝐬𝐩𝐚𝐜𝐢𝐨.\r\n⁣\r\nAdemás, hemos elegido el recinto perfecto para esta ocasión, un espacio que nos permitirá poner en marcha todo el potencial que tenemos preparado para esta edición… ¡La Caja Mágica! Y, por supuesto, 𝐞𝐥 𝟏𝟎𝟎% 𝐝𝐞 𝐥𝐨𝐬 𝐚𝐫𝐭𝐢𝐬𝐭𝐚𝐬 𝐜𝐨𝐧𝐟𝐢𝐫𝐦𝐚𝐝𝐨𝐬 𝐞𝐬𝐭𝐚𝐫á𝐧 𝐩𝐫𝐞𝐬𝐞𝐧𝐭𝐞𝐬 𝐞𝐧 𝐞𝐥 𝐟𝐞𝐬𝐭𝐢𝐯𝐚𝐥 𝐲 𝐦𝐮𝐜𝐡𝐨𝐬 𝐦á𝐬 𝐩𝐨𝐫 𝐚𝐧𝐮𝐧𝐜𝐢𝐚𝐫. ¡Esto solo acaba de empezar!⁣\r\n⁣\r\nEl festival que Madrid se merece es ya una realidad y estamos seguros de que nadie va a querer perdérselo porque… ¡𝐌𝐀𝐃𝐑𝐈𝐃 𝐒𝐄 𝐕𝐀 𝐀 𝐏𝐑𝐄𝐍𝐃𝐄𝐑!', '60b24c609043b.jpg', '60b24c60908f6.jpg', 'Reggaeaton/Hip Hop', 'Bad Bunny, Natti Natasha y Daddy Yankee serán los protagonistas del mayor festival de música urbana y reggaetón que se haya celebrado en Madrid Caja Mágica, hasta la fecha. Se reunirán con un público entregado que disfrutará de más artistas del género.', 'vie, 25 jun – sáb, 26 jun', 'saaaaaa');
 
 -- --------------------------------------------------------
 
@@ -159,7 +165,7 @@ CREATE TABLE `mensajes` (
 INSERT INTO `mensajes` (`id`, `titulo`, `contenido`, `imagen`, `usuario_id`, `fecha`) VALUES
 (9, 'Medusa Festival', 'yo recomiendo  si te gusta la música electrónica el medusa es tu festival', '60492023ea530.jpg', 2, '2021-03-29 17:37:53'),
 (13, 'arenal', 'bastante guay', '604d2e476ab83.jpg', 9, '2021-03-29 17:37:53'),
-(16, 'rrrrrrrr', 'rrr', '6061f46b31822.jpg', 14, '2021-03-29 17:38:19');
+(20, 'ejemplo incidencia', 'dsssssssssssssssssss', '60b4fad2c7607.jpg', 20, '2021-05-28 12:53:55');
 
 -- --------------------------------------------------------
 
@@ -180,7 +186,9 @@ CREATE TABLE `respuesta` (
 --
 
 INSERT INTO `respuesta` (`id`, `usuario_id`, `mensajes_id`, `contenido`, `imagen`) VALUES
-(9, 4, 9, 'hola', '604d2c1ca18b6.jpg');
+(9, 4, 9, 'hola', '604d2c1ca18b6.jpg'),
+(31, 20, 13, 'dddddddddddddddd', '60b0cda7a56fa.jpg'),
+(33, 20, 9, 'ghhhhhhhhhh', '60b4fb0cca52e.jpg');
 
 -- --------------------------------------------------------
 
@@ -198,22 +206,23 @@ CREATE TABLE `usuario` (
   `telefono` int(11) NOT NULL,
   `pais` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sexo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `imagen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `imagen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `email`, `roles`, `password`, `nombre`, `apellidos`, `telefono`, `pais`, `sexo`, `imagen`) VALUES
-(2, 'juan@jose', '[]', '$argon2id$v=19$m=65536,t=4,p=1$T1JQc1Jqb0pBTFFYTXEvNA$UZOGBZpbhGptlSEF81NwZhPS4YIhgl0whf2MwNrcrc8', 'juan', 'garcia', 635265841, 'españa', 'Masculino', '6048fc2faeb7d.jpg'),
-(4, 'adrian@sa', '[]', '$argon2id$v=19$m=65536,t=4,p=1$L2xiYnpua2RhUGsvZ3ZEMA$P5Ar03eWJcB/NjNTaq1Pu94/76MLV1LL7tyip9+w/PA', 'adri', 'rodriguez', 646757, 'españa', 'Masculino', '604d2c550976f.jpg'),
-(9, 'elena@aa', '[]', '$argon2id$v=19$m=65536,t=4,p=1$ZzMxMnUyeVNDWHJVbkdkSg$kca0ts66lE3o3eHZ+uMp3pP6RbivGy8Dy1ZvbaLvATU', 'elena', 'gimenez', 6535, 'españa', 'Masculino', '604d2cdda14f7.jpg'),
-(10, 'pedro@assaa', '[]', '$2y$10$2FRko/jyaRfMAQ7b2tTtPu9XBKbIBKmqRB7UOQMHXnksfPlgvzNJ6', 'fran', 'rodrigues', 630562057, 'Bahrein', 'masculino', 'saaaa'),
-(11, 'eeeeeeeeee@sss', '[]', '$2y$10$Wtxmcz5ZxTFKpAi0VtcSTun98xF7P1mQjieNivttxjOreIMfhs1qm', 'eeeeee', 'eeeeeee', 652123023, 'Bahamas', 'masculino', 'C:\\fakepath\\38498858_10155901697837428_7337696980899987456_o_NoticiaAmpliada.jpg'),
-(12, 'vcvc@sss', '[]', '$2y$10$hJzzenn6hq7tn9QD4Zi7terPwTBSU0Wf3DGDA8cLCmqjgELJHcn2K', 'vvvvv', 'vvvvvvvvvvvvvvvv', 630235620, 'Bahamas', 'femenino', 'C:\\fakepath\\38498858_10155901697837428_7337696980899987456_o_NoticiaAmpliada.jpg'),
-(13, 'fffff@aaaa', '[]', '$2y$10$J82pKdO7yV5CPAESTly5P.zkQa5l7q90FRKa.JJ.NWpSdDf.LBSP2', 'ddddd', 'dddddddd', 630265892, 'Bahamas', 'masculino', 'C:\\fakepath\\descarga (4).jpg'),
-(14, 'david.rodriguez5899@gmail.com', '[]', '$argon2id$v=19$m=65536,t=4,p=1$cEJ1YWtxdDFRVDRBSk5jVA$NwCWZRP0+b7NZwVPmLSmqGmM+BS1A3nnmGUnnUaUlTk', 'david', 'rodriguez', 2147483647, 'ES', 'Masculino', '605b1a68af7d9.png');
+INSERT INTO `usuario` (`id`, `email`, `roles`, `password`, `nombre`, `apellidos`, `telefono`, `pais`, `sexo`, `imagen`, `password2`) VALUES
+(2, 'juan@jose', '[]', '$argon2id$v=19$m=65536,t=4,p=1$T1JQc1Jqb0pBTFFYTXEvNA$UZOGBZpbhGptlSEF81NwZhPS4YIhgl0whf2MwNrcrc8', 'juan', 'garcia', 635265841, 'españa', 'Masculino', '6048fc2faeb7d.jpg', ''),
+(4, 'adrian@sa', '[]', '$argon2id$v=19$m=65536,t=4,p=1$L2xiYnpua2RhUGsvZ3ZEMA$P5Ar03eWJcB/NjNTaq1Pu94/76MLV1LL7tyip9+w/PA', 'adri', 'rodriguez', 646757, 'españa', 'Masculino', '604d2c550976f.jpg', ''),
+(9, 'elena@aa', '[]', '$argon2id$v=19$m=65536,t=4,p=1$ZzMxMnUyeVNDWHJVbkdkSg$kca0ts66lE3o3eHZ+uMp3pP6RbivGy8Dy1ZvbaLvATU', 'elena', 'gimenez', 6535, 'españa', 'Femenino', '60aa75724dcf3.jpg', ''),
+(10, 'pedro@assaa', '[]', '$2y$10$2FRko/jyaRfMAQ7b2tTtPu9XBKbIBKmqRB7UOQMHXnksfPlgvzNJ6', 'fran', 'rodrigues', 630562057, 'Bahrein', 'masculino', 'saaaa', ''),
+(20, 'david.rodriguez5899@gmail.com', '[]', '$argon2id$v=19$m=65536,t=4,p=1$SDVQWHNNZkF4ODdGMUN3TQ$+I/r3wuyduQTNVJo2o4GCks3GLjRpsRDQcDvTHxbG3E', 'david', 'rodriguez', 878787, 'ES', 'Masculino', '60b4fa9300570.jpg', '$argon2id$v=19$m=65536,t=4,p=1$bkwyb1BNcE5LQzFtRFJBZA$cyoBWiq1zbtpFw7F2reYc4dnXpuc44KRJmD00OSNB0M'),
+(30, 'dsds@zxdsc', '[]', '$argon2id$v=19$m=65536,t=4,p=1$L3VBYkczSTE3aHRjWmVvQw$qi55hAyBe1N2gtM9Ddc9eBKE+R4besPfo3mLypGdzk4', 'ñlkjnb', 'vbvv', 656555, 'HT', 'Femenino', '60a2700cb28c5.jpg', '$argon2id$v=19$m=65536,t=4,p=1$N1NobWFQc2ZKRUZZcmRsZg$//Nps3+M+fAfo0qBr3p2Z94A78u7eaWIVt6uT/a7k0g'),
+(38, 'hgbv@asa', '[]', '$argon2id$v=19$m=65536,t=4,p=1$dUJYcEtCTEJPNktaTXI3Mw$+fTDD8Jq+cp4cK57Ij0Fager2MY/p4svKSMm9O9bT6o', 'martin', 'ewe', 878787, 'AF', 'Femenino', '60b4fca314d53.jpg', '$argon2id$v=19$m=65536,t=4,p=1$dWpId1dEWmc1UG1ucGxhVg$hgBtywoDQBtb4elBnMmoYY12CRgCIAcrjmY3gveFQU0'),
+(39, 'elena@rgggggggggggaa', '[]', '$argon2id$v=19$m=65536,t=4,p=1$d0lERDJvdi5ReXVCemNxTA$FMAhQdDz6vR+62fkHmp9SPrrlupY5igAFUB8IYhMysA', 'elena', 'pradas casado', 646757, 'BD', 'Femenino', '60b4fd6536381.jpg', '$argon2id$v=19$m=65536,t=4,p=1$ZmJpOGp6QXVvZmt3dDlCag$xEKIQeC8oHdR34tw5hWw/jWUWj9+uYWst2rjB/DFKxc');
 
 -- --------------------------------------------------------
 
@@ -224,35 +233,36 @@ INSERT INTO `usuario` (`id`, `email`, `roles`, `password`, `nombre`, `apellidos`
 CREATE TABLE `video` (
   `id` int(11) NOT NULL,
   `festival_destacado_id` int(11) DEFAULT NULL,
-  `codigo` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL
+  `codigo` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `festival_otro_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `video`
 --
 
-INSERT INTO `video` (`id`, `festival_destacado_id`, `codigo`) VALUES
-(1, 6, 'n86tMHCUrbY'),
-(2, 7, 'CbRoIUjeNM8'),
-(3, 11, 'hvIg3PTJWxs'),
-(5, 14, '127yN7yBMEY'),
-(6, 15, 'Ovv2tF1Ur1c'),
-(7, 16, 'GihuFGxgDTo'),
-(8, 17, 'SswWog-ZwsM'),
-(11, 20, 'cZOQzGmhNZ8'),
-(12, 21, '1f2DXKOrGy8'),
-(13, 23, 'W_BKfb9MsF4'),
-(14, 22, 'vgkDCE0CehA'),
-(15, 24, 'kmwSnf6TMY0'),
-(17, 34, '1-02XmLlAoE'),
-(18, 26, 'nNe4RUHpLWI'),
-(19, 27, 'reR3kZc2AwM'),
-(20, 28, 'GI8oop5lWQ8'),
-(21, 29, 'VyHtNPdGlC0'),
-(22, 30, '0JFWvXJUf1k'),
-(23, 31, 'DpxyDPzQZ7E'),
-(24, 32, 'cvdzQnZsuXM'),
-(25, 33, 'jqsymLe6CJ8');
+INSERT INTO `video` (`id`, `festival_destacado_id`, `codigo`, `festival_otro_id`) VALUES
+(1, 6, 'n86tMHCUrbY', NULL),
+(2, 7, 'CbRoIUjeNM8', NULL),
+(3, 11, 'hvIg3PTJWxs', NULL),
+(5, 14, '127yN7yBMEY', NULL),
+(6, 15, 'Ovv2tF1Ur1c', NULL),
+(7, 16, 'GihuFGxgDTo', NULL),
+(8, 17, 'SswWog-ZwsM', NULL),
+(11, 20, 'cZOQzGmhNZ8', NULL),
+(12, 21, '1f2DXKOrGy8', NULL),
+(13, 23, 'W_BKfb9MsF4', NULL),
+(14, 22, 'vgkDCE0CehA', NULL),
+(15, 24, 'kmwSnf6TMY0', NULL),
+(17, 34, '1-02XmLlAoE', NULL),
+(18, 26, 'nNe4RUHpLWI', NULL),
+(19, 27, 'reR3kZc2AwM', NULL),
+(20, 28, 'GI8oop5lWQ8', NULL),
+(21, 29, 'VyHtNPdGlC0', NULL),
+(22, 30, '0JFWvXJUf1k', NULL),
+(23, 31, 'DpxyDPzQZ7E', NULL),
+(24, 32, 'cvdzQnZsuXM', NULL),
+(25, 33, 'jqsymLe6CJ8', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -311,7 +321,8 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `video`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `IDX_7CC7DA2C6DD346C5` (`festival_destacado_id`);
+  ADD KEY `IDX_7CC7DA2C6DD346C5` (`festival_destacado_id`),
+  ADD KEY `IDX_7CC7DA2C2493DD6C` (`festival_otro_id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -321,7 +332,7 @@ ALTER TABLE `video`
 -- AUTO_INCREMENT de la tabla `favorito`
 --
 ALTER TABLE `favorito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `festival_destacado`
@@ -333,25 +344,25 @@ ALTER TABLE `festival_destacado`
 -- AUTO_INCREMENT de la tabla `festival_otro`
 --
 ALTER TABLE `festival_otro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `video`
@@ -387,6 +398,7 @@ ALTER TABLE `respuesta`
 -- Filtros para la tabla `video`
 --
 ALTER TABLE `video`
+  ADD CONSTRAINT `FK_7CC7DA2C2493DD6C` FOREIGN KEY (`festival_otro_id`) REFERENCES `festival_otro` (`id`),
   ADD CONSTRAINT `FK_7CC7DA2C6DD346C5` FOREIGN KEY (`festival_destacado_id`) REFERENCES `festival_destacado` (`id`);
 COMMIT;
 
