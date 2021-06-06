@@ -64,9 +64,15 @@ class FestivalOtro
      */
     private $videos;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Favorito::class, mappedBy="festOtro")
+     */
+    private $favoritos;
+
     public function __construct()
     {
         $this->videos = new ArrayCollection();
+        $this->favoritos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -194,6 +200,36 @@ class FestivalOtro
             // set the owning side to null (unless already changed)
             if ($video->getFestivalOtro() === $this) {
                 $video->setFestivalOtro(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Favorito[]
+     */
+    public function getFavoritos(): Collection
+    {
+        return $this->favoritos;
+    }
+
+    public function addFavorito(Favorito $favorito): self
+    {
+        if (!$this->favoritos->contains($favorito)) {
+            $this->favoritos[] = $favorito;
+            $favorito->setFestOtro($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavorito(Favorito $favorito): self
+    {
+        if ($this->favoritos->removeElement($favorito)) {
+            // set the owning side to null (unless already changed)
+            if ($favorito->getFestOtro() === $this) {
+                $favorito->setFestOtro(null);
             }
         }
 

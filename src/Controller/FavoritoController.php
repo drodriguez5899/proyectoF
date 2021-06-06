@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 use App\Entity\Favorito;
+use App\Entity\FestivalOtro;
 use App\Entity\FestivalDestacado;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,6 +70,48 @@ class FavoritoController extends AbstractController {
         }
 
         return $this->render('favorito/insertarFavorito.html.twig',
+                        ['form' => $form->createView()]);
+
+
+
+
+
+        return $this->redirectToRoute('favoritos');
+        
+    }
+     /**
+     * @Route("/favoritos/insertarOtro/{id}", name="insertar_favoritoOtro")
+     */
+    public  function insertarOtro(Request $request, FestivalOtro $otro): Response
+    {
+        $favorito2 = new Favorito();
+        $form = $this->createFormBuilder($favorito2)
+              
+                              
+                ->add('enviar', SubmitType::class,
+                        ['label' => 'Insertar favorito'])
+                ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $favorito2 = $form->getData();
+            
+
+            //Guardamos el nuevo cliente en la base de datos
+            $em = $this->getDoctrine()->getManager();
+            $favorito2->setFestOtro($otro);
+            $favorito2 ->setUsuario($this->getUser());
+            $em->persist($favorito2);
+            $em->flush();             
+            $this->addFlash(
+                    'notice',
+                    'Se ha creado correctamente'
+                    );
+
+            return $this->redirectToRoute('favoritos');
+        }
+
+        return $this->render('favorito/insertarFavorito2.html.twig',
                         ['form' => $form->createView()]);
 
 

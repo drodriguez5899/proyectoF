@@ -27,6 +27,11 @@ class Favorito
      */
     private $festDestacado;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=FestivalOtro::class, inversedBy="favoritos")
+     */
+    private $festOtro;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -66,6 +71,18 @@ class Favorito
     public function setFestDestacado(?FestivalDestacado $destacado): self
     {
         $this->festDestacado = $destacado;
+
+        return $this;
+    }
+
+    public function getFestOtro(): ?FestivalOtro
+    {
+        return $this->festOtro;
+    }
+
+    public function setFestOtro(?FestivalOtro $festOtro): self
+    {
+        $this->festOtro = $festOtro;
 
         return $this;
     }
